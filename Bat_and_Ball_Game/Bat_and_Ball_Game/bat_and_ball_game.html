@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bat Ball Wicket</title>
+  <link rel="stylesheet" href="./bat_ball_game.css">
+</head>
+
+<body background="cricket.png" id="background">
+  <center>
+    <h1>Gully Cricket Game</h1>
+
+    <button onclick="userPlay('bat')"><img src="./Bat.png" alt="bat" id="bat"></button>
+    <button onclick="userPlay('ball')"><img src="./ball.png" alt="ball" id="ball"></button>
+    <button onclick="userPlay('wicket')"><img src="./wicket.jpg" alt="wicket" id="wicket"></button>
+
+  </center>
+
+  <center>
+    <h2>Points:</h2>
+    <p id="wincount">User wins: 0</p>
+    <p id="losscount">Computer wins: 0</p>
+    <p id="tiecount">Matches tie: 0</p>
+  </center>
+
+  <script>
+    let computerChoice;
+
+    const result = {
+      wins: 0,
+      losses: 0,
+      ties: 0,
+    };
+
+    // Function to generate the computer's choice
+    function generateComputerChoice() {
+      const randomNumber = Math.random() * 3;
+      if (randomNumber < 1) {
+        computerChoice = 'bat';
+      } else if (randomNumber < 2) {
+        computerChoice = 'ball';
+      } else {
+        computerChoice = 'wicket';
+      }
+    }
+
+    function updateResultDisplay() {
+      document.getElementById('wincount').innerText = `User Wins:${result.wins}`;
+      document.getElementById('losscount').innerText = `Computer Wins:${result.losses}`;
+      document.getElementById('tiecount').innerText = `Matches Tie:${result.ties}`;
+    }
+
+    // Function to handle the user's choice and determine the result
+    function userPlay(userChoice) {
+      generateComputerChoice();
+      alert(`User choice is: ${userChoice}`);
+      alert(`Computer choice is: ${computerChoice}`);
+
+      if (userChoice === 'bat') {
+        if (computerChoice === 'ball') {
+          alert('User Won');
+          result.wins++;
+        } else if (computerChoice === 'wicket') {
+          alert('Computer won');
+          result.losses++;
+        } else {
+          alert('It is a tie');
+          result.ties++;
+        }
+      } else if (userChoice === 'ball') {
+        if (computerChoice === 'bat') {
+          alert('Computer Won');
+          result.losses++;
+        } else if (computerChoice === 'wicket') {
+          alert('User won');
+          result.wins++;
+        } else {
+          alert('It is a tie');
+          result.ties++;
+        }
+      } else if (userChoice === 'wicket') {
+        if (computerChoice === 'bat') {
+          alert('User Won');
+          result.wins++;
+        } else if (computerChoice === 'ball') {
+          alert('Computer won');
+          result.losses++;
+        } else {
+          alert('It is a tie');
+          result.ties++;
+        }
+      }
+
+      updateResultDisplay();
+    }
+  </script>
+</body>
+
+</html>

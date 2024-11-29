@@ -1,0 +1,60 @@
+#bat{
+  border:2px solid black;
+  background-color:transparent;
+  width:150px;
+  height: 150px;
+}
+#ball{
+  border:none;
+  background-color:transparent;
+  width:150px;
+  height:150px;
+}
+#wicket{
+  border: none;
+  background-color:transparent;
+  width:150px;
+  height:150px;
+}
+button{
+  border-radius: 5px;
+  border: 2px solid red;
+  cursor:pointer;
+  padding: 3px 3px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#background{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width:100vh;
+  height:100vh;
+}
+body{
+  margin:0px;
+  padding:0px;
+  display:flex;
+  justify-content: center;
+  height: 100vh;
+  background:url('cricket.png');
+  background-color:cover;
+  font-family:Arial, sans-serif;
+}
+center{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+h1{
+  font-size:2rem;
+  margin-bottom:20px;
+}
+h2{
+  margin-top:20px;
+}
+p{
+  font-size:1.2rem;
+  margin:5px;
+}
